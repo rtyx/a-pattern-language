@@ -1,0 +1,27 @@
+:root { color-scheme: light dark; --bg: #faf7f2; --fg: #2b2620; --panel: #fff; --line: #bbb; }
+@media (prefers-color-scheme: dark) { :root { --bg: #1c1a17; --fg: #eee8de; --panel: #26231f; --line: #555; } }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: system-ui, sans-serif; }
+.app { display: flex; flex-direction: column; height: 100vh; }
+header { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+header h1 { font-size: 1.1rem; margin: 0; }
+header input[type='search'] { padding: 6px 10px; min-width: 220px; }
+.filters { display: flex; gap: 12px; font-size: 0.9rem; }
+.filters label { display: flex; align-items: center; gap: 4px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+main { flex: 1; display: flex; min-height: 0; }
+.graph { flex: 1; min-width: 0; cursor: grab; touch-action: none; }
+.edge { stroke: var(--line); stroke-width: 1; opacity: 0.6; }
+.edge.active { stroke: var(--fg); stroke-width: 2; opacity: 1; }
+.node { cursor: pointer; transition: opacity 0.15s; }
+.node.dim { opacity: 0.15; }
+.node .sel { stroke: var(--fg); stroke-width: 2; }
+.node text { fill: var(--fg); font-size: 11px; pointer-events: none; }
+aside { width: 300px; padding: 16px; overflow-y: auto; border-left: 1px solid var(--line); background: var(--panel); }
+aside h2 { margin: 4px 0 12px; font-size: 1.15rem; }
+aside h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.7; }
+aside ul { list-style: none; padding: 0; margin: 0; }
+aside li button { background: none; border: 0; padding: 4px 0; color: inherit; cursor: pointer; text-align: left; text-decoration: underline; font: inherit; }
+.meta { margin: 0; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; }
+.hint { opacity: 0.7; font-size: 0.9rem; line-height: 1.4; }
+@media (max-width: 700px) { main { flex-direction: column; } aside { width: auto; max-height: 40%; border-left: 0; border-top: 1px solid var(--line); } }
